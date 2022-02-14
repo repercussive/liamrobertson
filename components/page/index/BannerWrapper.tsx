@@ -1,13 +1,12 @@
 import { FC } from 'react'
+import SectionWrapper from '@/components/modular/SectionWrapper'
 import Box from '@/components/modular/Box'
 
 const BannerWrapper: FC = ({ children }) => {
   return (
-    <Box
+    <SectionWrapper
       css={{
         bg: '$banner',
-        width: '100%',
-        px: '$4',
         py: '$4',
         '@bp1': {
           py: '$6'
@@ -20,7 +19,7 @@ const BannerWrapper: FC = ({ children }) => {
       <Box css={{ maxWidth: '$max', margin: 'auto' }}>
         {children}
       </Box>
-    </Box>
+    </SectionWrapper>
   )
 }
 
