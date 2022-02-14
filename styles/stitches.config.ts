@@ -9,6 +9,7 @@ export const { styled, css, theme, getCssText } = createStitches({
       bg: 'var(--color-bg)',
       accent: 'var(--color-accent)',
       banner: 'var(--color-banner)',
+      divider: 'var(--color-divider)'
     },
     space: {
       0: '0',
@@ -20,6 +21,9 @@ export const { styled, css, theme, getCssText } = createStitches({
       6: '1.5rem',
       7: '1.75rem',
       8: '2rem'
+    },
+    sizes: {
+      max: '900px'
     }
   },
   media: {
