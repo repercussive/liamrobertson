@@ -1,14 +1,13 @@
-import Flex from 'components/modular/Flex'
-import Text from '@/components/modular/Text'
-import Spacer from '@/components/modular/Spacer'
 import { styled } from '@/styles/stitches.config'
+import Flex from 'components/modular/Flex'
+import Spacer from '@/components/modular/Spacer'
 
 const HeadingSection = () => {
   return (
     <Flex align="center">
       <WaveEmoji role="presentation">👋</WaveEmoji>
       <Spacer mr="$3" />
-      <MainHeading>Hi, my name is <br /><strong>Liam Robertson.</strong></MainHeading>
+      <MainHeading>Hi, my name is <br /><strong>Liam Robertson</strong>.</MainHeading>
     </Flex >
   )
 }
