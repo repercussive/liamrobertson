@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Fira Code';
+  src: url('/fonts/FiraCode-Variable.woff2');
+  font-style: normal;
+  font-weight: 0 999;
+  font-display: swap;
+}
+
 :root {
   --color-text: #ffffff;
   --color-accent: #edc63a;
@@ -10,8 +18,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: monospace;
-  font-size: 16px;
+  font-family: 'Fira Code', monospace;
+  font-size: 15px;
   color: var(--color-text);
   background-color: var(--color-bg);
 
@@ -29,7 +37,7 @@ body {
 
 strong {
   color: var(--color-accent);
-  font-weight: bold;
+  font-weight: 600;
 }
 
 p {
@@ -42,5 +50,6 @@ h3,
 h4,
 h5,
 h6 {
+  font-weight: normal;
   font-size: 1.5rem;
 }
