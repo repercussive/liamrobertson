@@ -63,11 +63,16 @@ const Project = ({ name, description, icon }: { name: string, description: strin
 }
 
 const ProjectWrapper = styled(FeaturedItem, {
+  '--padding': '1rem',
   textAlign: 'left',
   flexDirection: 'column',
   '@bp1': {
     flexDirection: 'row',
     justifyContent: 'flex-start'
+  },
+  '@bp2': {
+    '--padding': '1.25rem',
+    pl: '1.15rem'
   },
   '&:not(:last-of-type)': {
     mb: '$3',
@@ -75,7 +80,7 @@ const ProjectWrapper = styled(FeaturedItem, {
   },
   '.project-name': {
     fontWeight: 'bold',
-    fontSize: '1.15rem',
+    fontSize: '1.15rem'
   }
 })
 
