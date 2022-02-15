@@ -1,12 +1,7 @@
-import { styled } from '@/styles/stitches.config'
-import FeaturedItem from '@/components/page/index/FeaturedItem'
-import Grid from '@/components/modular/Grid'
-import Icon from '@/components/modular/Icon'
+import FeaturedTechGrid from '@/components/page/index/FeaturedTechGrid'
 import SectionWrapper from '@/components/modular/SectionWrapper'
 import Spacer from '@/components/modular/Spacer'
-import Text from '@/components/modular/Text'
 import TypeScriptIcon from '@/components/icons/TypeScriptIcon'
-import Flex from '@/components/modular/Flex'
 import ReactIcon from '@/components/icons/ReactIcon'
 import CssIcon from '@/components/icons/CssIcon'
 import NextJsIcon from '@/components/icons/NextJsIcon'
@@ -18,36 +13,16 @@ const SkillsSection = () => {
     <SectionWrapper>
       <h2>Tools in my box</h2>
       <Spacer mb="$4" />
-      <GridWrapper>
-        <Skill name="TypeScript" icon={TypeScriptIcon} />
-        <Skill name="React" icon={ReactIcon} />
-        <Skill name="CSS & Sass" icon={CssIcon} />
-        <Skill name="NextJS" icon={NextJsIcon} />
-        <Skill name="Git" icon={GitIcon} />
-        <Skill name="Firebase & Firestore" icon={FirebaseIcon} />
-      </GridWrapper>
+      <FeaturedTechGrid>
+        <FeaturedTechGrid.Item name="TypeScript" icon={TypeScriptIcon} />
+        <FeaturedTechGrid.Item name="React" icon={ReactIcon} />
+        <FeaturedTechGrid.Item name="CSS & Sass" icon={CssIcon} />
+        <FeaturedTechGrid.Item name="NextJS" icon={NextJsIcon} />
+        <FeaturedTechGrid.Item name="Git" icon={GitIcon} />
+        <FeaturedTechGrid.Item name="Firebase & Firestore" icon={FirebaseIcon} />
+      </FeaturedTechGrid>
     </SectionWrapper>
   )
 }
-
-const Skill = ({ name, icon }: { name: string, icon: () => JSX.Element }) => {
-  return (
-    <FeaturedItem css={{ display: 'grid', placeItems: 'center' }}>
-      <Flex center css={{ height: '2rem' }}>
-        <Icon icon={icon} css={{ fontSize: icon === NextJsIcon ? '1.4em' : '1em' }} />
-      </Flex>
-      <Spacer mb="$2" />
-      <Text as="h3" css={{ fontSize: '1rem', fontWeight: 'normal' }}>
-        {name}
-      </Text>
-    </FeaturedItem>
-  )
-}
-
-const GridWrapper = styled(Grid, {
-  gridTemplateColumns: 'repeat(auto-fit, minmax(min(230px, 100%), 1fr))',
-  gridGap: '$3',
-  '@bp1': { gridGap: '$4' }
-})
 
 export default SkillsSection

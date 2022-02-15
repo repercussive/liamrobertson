@@ -2,6 +2,7 @@ import BannerWrapper from '@/components/page/index/BannerWrapper'
 import HeadingSection from 'components/page/index/HeadingSection'
 import SkillsSection from '@/components/page/index/SkillsSection'
 import ProjectsSection from '@/components/page/index/ProjectsSection'
+import LearningSection from '@/components/page/index/LearningSection'
 import BioText from '@/components/page/index/BioText'
 import Divider from '@/components/modular/Divider'
 import Spacer from '@/components/modular/Spacer'
@@ -24,6 +25,9 @@ export default function Home() {
         <SkillsSection />
         <Spacer mb="$6" />
         <ProjectsSection />
+        <Spacer mb="$6" />
+        <LearningSection />
+        <Spacer mb="$4" />
       </main>
     </div>
   )
