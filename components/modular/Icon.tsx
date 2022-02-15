@@ -11,6 +11,7 @@ const Icon = ({ icon, css }: Props) => {
 
   return (
     <Box
+      aria-hidden
       as="span"
       className="icon"
       css={{
