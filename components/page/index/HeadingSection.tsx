@@ -1,19 +1,31 @@
 import { styled } from '@/styles/stitches.config'
 import Flex from 'components/modular/Flex'
 import Spacer from '@/components/modular/Spacer'
+import ScrambledText from '@/components/modular/ScrambledText'
 
 const HeadingSection = () => {
   return (
     <Flex align="center">
       <WaveEmoji role="presentation">👋</WaveEmoji>
       <Spacer mr="$3" />
-      <MainHeading>Hi, my name is <br /><strong>Liam Robertson</strong>.</MainHeading>
+      <MainHeading>
+        <ScrambledText
+          segments={[
+            { text: 'Hi, my name is ' },
+            { component: <br /> },
+            { text: 'Liam Robertson', strong: true },
+            { text: '.', }
+          ]}
+        />
+      </MainHeading>
     </Flex >
   )
 }
 
 const WaveEmoji = styled('span', {
   fontSize: '2rem',
+  opacity: 0,
+  animation: 'fade-in forwards 500ms 250ms',
   '@bp1': { fontSize: '4rem' }
 })
 

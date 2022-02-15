@@ -64,3 +64,18 @@ h5,
 h6 {
   font-size: 1.5rem;
 }
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
