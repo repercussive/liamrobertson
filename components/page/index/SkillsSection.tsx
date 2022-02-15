@@ -1,4 +1,5 @@
 import { styled } from '@/styles/stitches.config'
+import FeaturedItem from '@/components/page/index/FeaturedItem'
 import Grid from '@/components/modular/Grid'
 import Icon from '@/components/modular/Icon'
 import SectionWrapper from '@/components/modular/SectionWrapper'
@@ -29,43 +30,24 @@ const SkillsSection = () => {
   )
 }
 
-const GridWrapper = styled(Grid, {
-  gridTemplateColumns: 'repeat(auto-fit, minmax(min(230px, 100%), 1fr))',
-  gridGap: '$3',
-  '@bp1': { gridGap: '$4' }
-})
-
 const Skill = ({ name, icon }: { name: string, icon: () => JSX.Element }) => {
   return (
-    <SkillWrapper>
+    <FeaturedItem css={{ display: 'grid', placeItems: 'center' }}>
       <Flex center css={{ height: '2rem' }}>
         <Icon icon={icon} css={{ fontSize: icon === NextJsIcon ? '1.4em' : '1em' }} />
       </Flex>
       <Spacer mb="$2" />
-      <Text>{name}</Text>
-    </SkillWrapper>
+      <Text as="h3" css={{ fontSize: '1rem', fontWeight: 'normal' }}>
+        {name}
+      </Text>
+    </FeaturedItem>
   )
 }
 
-const SkillWrapper = styled('div', {
-  '--padding': '0.75rem',
-  '@bp1': { '--padding': '1rem' },
-  display: 'grid',
-  placeItems: 'center',
-  padding: 'var(--padding)',
-  paddingBottom: 'calc(var(--padding) - 3px)',
-  userSelect: 'none',
-  bg: '$banner',
-  borderRadius: '4px',
-  textAlign: 'center',
-  transition: 'background-color 80ms ease-out',
-  '&:not(:hover) .icon': {
-    color: '$accent'
-  },
-  '&:hover': {
-    bg: '$accent',
-    color: '$bg'
-  }
+const GridWrapper = styled(Grid, {
+  gridTemplateColumns: 'repeat(auto-fit, minmax(min(230px, 100%), 1fr))',
+  gridGap: '$3',
+  '@bp1': { gridGap: '$4' }
 })
 
 export default SkillsSection
