@@ -56,6 +56,20 @@ p {
   line-height: 1.5rem;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+  border-radius: 2px;
+  &:focus {
+    outline: solid 2px var(--color-text);
+    color: '$accent';
+    &:not(:focus-visible) {
+      outline: none;
+      color: inherit;
+    }
+  }
+}
+
 h1,
 h2,
 h3,
