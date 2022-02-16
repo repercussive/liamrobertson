@@ -11,25 +11,28 @@ const ScrambledText = ({ segments, order = 0 }: { segments: ScrambledSegmentData
   const [segmentPositions] = useState(getSegmentPositions(segments))
 
   useEffect(() => {
-    const unscramble = async () => {
-      const frameIncrement = 0.005
-      const frameDuration = 2
-      const textLength = rawText.length
-      let t = 0
-      await sleep(500 * order + 300)
-      while (t < 1) {
-        t += frameIncrement
-        if ((t * 100) % (12 * frameIncrement * 100) < 0.001) {
-          setScrambledText(getScrambledCharacters(rawText, t))
-        }
-        const t2 = 1 - Math.pow(1 - t, 4)
-        setRevealedCharactersCount(Math.floor(t2 * textLength))
-        await sleep(frameDuration)
+    let t = 0
+    const frameIncrement = 0.015
+    const textLength = rawText.length
+
+    const unscramble = () => {
+      if (t >= 1) {
+        setScrambledText(rawText.split(''))
+        setRevealedCharactersCount(textLength)
+        return
       }
-      setScrambledText(getScrambledCharacters(rawText, 1))
+
+      t += frameIncrement
+      if ((t * 100) % (4 * frameIncrement * 100) < 0.001) {
+        setScrambledText(getScrambledCharacters(rawText, t))
+      }
+      const t2 = 1 - Math.pow(1 - t, 3)
+      setRevealedCharactersCount(Math.floor(t2 * textLength))
+
+      requestAnimationFrame(unscramble)
     }
 
-    unscramble()
+    sleep(500 * order + 300).then(unscramble)
   }, [])
 
   const displayedText = scrambledText
