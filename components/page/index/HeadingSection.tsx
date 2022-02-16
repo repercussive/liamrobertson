@@ -1,12 +1,18 @@
 import { styled } from '@/styles/stitches.config'
+import { useContext, useState } from 'react'
+import { EntranceAnimationContext } from 'pages/_app'
 import Flex from 'components/modular/Flex'
 import Spacer from '@/components/modular/Spacer'
 import ScrambledText from '@/components/modular/ScrambledText'
 
 const HeadingSection = () => {
+  const [{ showEntranceAnimation }] = useState(useContext(EntranceAnimationContext))
+
   return (
     <Flex align="center">
-      <WaveEmoji role="presentation">👋</WaveEmoji>
+      <WaveEmoji role="presentation" css={{ animationDelay: showEntranceAnimation ? 250 : 0 }}>
+        👋
+      </WaveEmoji>
       <Spacer mr="$3" />
       <MainHeading>
         <ScrambledText
@@ -25,7 +31,7 @@ const HeadingSection = () => {
 const WaveEmoji = styled('span', {
   fontSize: '2rem',
   opacity: 0,
-  animation: 'fade-in forwards 500ms 250ms',
+  animation: 'fade-in forwards 500ms',
   '@bp1': { fontSize: '4rem' }
 })
 

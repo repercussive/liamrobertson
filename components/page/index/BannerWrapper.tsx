@@ -1,15 +1,18 @@
-import { FC } from 'react'
+import { FC, useContext, useState } from 'react'
+import { EntranceAnimationContext } from 'pages/_app'
 import { keyframes } from '@/styles/stitches.config'
 import SectionWrapper from '@/components/modular/SectionWrapper'
 import Box from '@/components/modular/Box'
 
 const BannerWrapper: FC = ({ children }) => {
+  const [{ showEntranceAnimation }] = useState(useContext(EntranceAnimationContext))
+
   return (
     <SectionWrapper
       css={{
         bg: '$bg',
         py: '$4',
-        animation: `${changeBannerColor} forwards 1s 2s`,
+        animation: `${changeBannerColor} forwards 500ms ${showEntranceAnimation ? 2000 : 0}ms`,
         '@bp1': {
           py: '$6'
         },

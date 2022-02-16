@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { EntranceAnimationContext } from 'pages/_app'
+import { useContext, useEffect, useState } from 'react'
 
 type ScrambledSegmentData = { text?: string, strong?: boolean, component?: JSX.Element }
 
@@ -9,16 +10,22 @@ const ScrambledText = ({ segments, order = 0 }: { segments: ScrambledSegmentData
   const [scrambledText, setScrambledText] = useState(getScrambledCharacters(rawText))
   const [revealedCharactersCount, setRevealedCharactersCount] = useState(0)
   const [segmentPositions] = useState(getSegmentPositions(segments))
+  const { showEntranceAnimation, setShowEntranceAnimation } = useContext(EntranceAnimationContext)
 
   useEffect(() => {
     let t = 0
     const frameIncrement = 0.015
     const textLength = rawText.length
 
-    const unscramble = () => {
+    const completeUnscramble = () => {
+      setScrambledText(rawText.split(''))
+      setRevealedCharactersCount(textLength)
+    }
+
+    const doUnscrambleStep = () => {
       if (t >= 1) {
-        setScrambledText(rawText.split(''))
-        setRevealedCharactersCount(textLength)
+        completeUnscramble()
+        setShowEntranceAnimation(false)
         return
       }
 
@@ -29,10 +36,14 @@ const ScrambledText = ({ segments, order = 0 }: { segments: ScrambledSegmentData
       const t2 = 1 - Math.pow(1 - t, 3)
       setRevealedCharactersCount(Math.floor(t2 * textLength))
 
-      requestAnimationFrame(unscramble)
+      requestAnimationFrame(doUnscrambleStep)
     }
 
-    sleep(500 * order + 300).then(unscramble)
+    if (showEntranceAnimation) {
+      sleep(500 * order + 300).then(doUnscrambleStep)
+    } else {
+      completeUnscramble()
+    }
   }, [])
 
   const displayedText = scrambledText
