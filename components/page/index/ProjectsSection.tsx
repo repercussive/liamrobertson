@@ -21,7 +21,7 @@ const ProjectsSection = () => {
       <Flex direction="column">
         <Project
           name="Bookboard"
-          description="A handy book tracker & logger with cloud sync. Features unlockable plants."
+          description="A handy book tracker & logger with cloud sync. Highly customisable."
           icon={BookIcon}
         />
         <Project

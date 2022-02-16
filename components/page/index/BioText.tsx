@@ -15,7 +15,7 @@ const BioText = () => {
           { component: <LineBreak /> },
           { text: `For about 10 years I've lived in ` },
           { text: 'Glasgow', strong: true },
-          { text: `. You've stumbled upon a portfolio page of sorts.` }
+          { text: `. Looks like you've stumbled across my portfolio page.` }
         ]}
       />
     </Text>
