@@ -33,7 +33,7 @@ const ProjectsSection = () => {
         />
         <Project
           name="Braincache"
-          description="A verbal memory game written multiple times in React, Svelte & Vue."
+          description="A verbal memory game written multiple times in React, Svelte & Vue. Read more for my thoughts on JS frameworks."
           icon={SpeechBubbleIcon}
         />
       </Flex>

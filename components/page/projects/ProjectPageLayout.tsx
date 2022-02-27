@@ -50,6 +50,7 @@ const ProjectPageLayout: FC<Props> = ({ name, icon, liveUrl, githubUrl, children
         <Divider />
         <Spacer mb="$4" />
         {children}
+        <Spacer mb="$4" />
       </SectionWrapper>
     </main>
   )
@@ -98,4 +99,39 @@ const ProjectHeading = styled('h1', {
   }
 })
 
-export default ProjectPageLayout
+const Description = styled('div', {
+  '& p': {
+    '& b': {
+      fontWeight: 'normal',
+      textDecoration: 'underline 2px',
+      textDecorationColor: '$accent'
+    },
+    '&:not(:last-of-type)': {
+      mb: '$4',
+    }
+  },
+  '& ul': {
+    pl: '$4',
+    my: '$3',
+    '@bp1': { pl: '$6' },
+    '@bp2': { pl: '$8' },
+    'li': {
+      position: 'relative',
+      lineHeight: '1.5rem',
+      listStyle: 'none',
+      '&::before': {
+        position: 'absolute',
+        inset: 0,
+        left: '-15px',
+        top: '0.5em',
+        content: '""',
+        width: '5px',
+        height: '5px',
+        borderRadius: '50%',
+        bg: '$accent'
+      }
+    }
+  }
+})
+
+export default Object.assign(ProjectPageLayout, { Description })
