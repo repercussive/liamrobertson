@@ -40,6 +40,7 @@ const MainHeading = styled('h1', {
   top: '1px',
   fontSize: '1.75rem',
   fontWeight: 'normal',
+  lineHeight: '1.25em',
   '@bp1': { fontSize: '2.25rem' },
   '@media screen and (max-width: 325px)': { fontSize: '1.25rem' }
 })
