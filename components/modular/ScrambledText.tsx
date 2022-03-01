@@ -14,7 +14,7 @@ const ScrambledText = ({ segments, order = 0 }: { segments: ScrambledSegmentData
 
   useEffect(() => {
     let t = 0
-    const frameIncrement = 0.015
+    const frameIncrement = 0.001
     const textLength = rawText.length
 
     const completeUnscramble = () => {
@@ -30,7 +30,7 @@ const ScrambledText = ({ segments, order = 0 }: { segments: ScrambledSegmentData
       }
 
       t += frameIncrement
-      if ((t * 100) % (4 * frameIncrement * 100) < 0.001) {
+      if ((t * 100) % (40 * frameIncrement * 100) < 0.001) {
         setScrambledText(getScrambledCharacters(rawText, t))
       }
       const t2 = 1 - Math.pow(1 - t, 3)
