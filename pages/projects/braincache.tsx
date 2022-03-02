@@ -45,6 +45,10 @@ const BraincachePage = () => {
           there are also some pretty big differences between them.
         </p>
         <p>
+          Also note that my perspective is mostly informed by making very client-side-focused apps.
+          I'm not experienced in much else, so take all this with a grain of salt.
+        </p>
+        <p>
           <strong>I'll start with Svelte.</strong> This was the one I looked forward to trying out the most.
           Svelte is supposed to be all young and modern and cool.
           I'm happy to report that the hype is generally justified. Overall I had a great time working with this framework.
@@ -136,7 +140,7 @@ const BraincachePage = () => {
         <ul>
           <li>
             It provides no way for your UI to react to external state at all, so in the absence of other libraries,
-            you are forced to write your application within your UI components, which is a painful and messy way to work
+            you could be forced to essentially write your app within your UI components, which is a painful and messy way to work
             that makes it impossible to test logic in isolation.
             Suddenly your "UI library" has become your entire application.
           </li>
