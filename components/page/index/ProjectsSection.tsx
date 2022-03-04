@@ -94,6 +94,9 @@ const ProjectWrapper = styled(FeaturedItem, {
     fontWeight: 'bold',
     fontSize: '1.15rem',
     width: 'fit-content'
+  },
+  '&:hover .project-name': {
+    color: '$bg'
   }
 })
 
